@@ -5,7 +5,6 @@
 	require_once(dirname(__FILE__) . '/../../config.php');
 	require_once($CFG->dirroot.'/my/lib.php');
 	require_once('mclib.php');
-	require_once($CFG->libdir.'/sheep.php');
 	
 	
 	/*$params = array(

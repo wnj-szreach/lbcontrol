@@ -11,14 +11,6 @@ if ($ADMIN->fulltree) {
 						PARAM_RAW_TRIMMED
 					));
 
-    /*$settings->add(new admin_setting_configcheckbox(
-						'block_lbcontrol_useadmin',
-						get_string('useadmin', 'block_lbcontrol'),
-                   		get_string('useadmin_detail', 'block_lbcontrol'),
-						0
-					));
-*/
-
     $link1 ='<p><a href="'.$CFG->wwwroot.'/blocks/lbcontrol/managerooms.php">'.get_string('managerooms', 'block_lbcontrol').'</a></p>';
     $settings->add(new admin_setting_heading('block_lbcontrol_link1', '', $link1));
 

@@ -3,7 +3,6 @@
 	* mclib.php
 	*/
 	require_once(dirname(__FILE__) . '/../../config.php');
-	require_once($CFG->libdir.'/sheep.php');
 
 	// 请求的公共方法
 	function mediacenter_request($code, $params) {
@@ -42,7 +41,9 @@
 
 	// 获取并修正媒体中心地址
 	function get_mc_host() {
-		$mc_host  = get_config('mediacenter', 'host');
+		global $CFG;
+		
+		$mc_host  = $CFG->block_lbcontrol_host;
 		if ($mc_host == null || $mc_host == '') {
 			$mc_host = 'http://127.0.0.1';
 		} else if (!(strpos($mc_host, 'http') === 0)) {//地址修正
@@ -74,6 +75,18 @@
 		}
 		return $rt;
 	}
+
+    // 把获取到的地址改成通过moodle方法的代理地址
+    function changeUrl2Moodle($url) {
+        if($url != null) {
+            $arr = explode('?', $url);
+            //$arr2 = explode('repository', $_SERVER['PHP_SELF']);//娘的，处理可能的上下文，虽然PHP里面没有上下文的概念
+            //$url = 'http://'.$_SERVER['HTTP_HOST'].$arr2[0].'blocks/lbcontrol/live.php?'.$arr[1];
+            $qstr = str_replace('&preview=1', '', $arr[1]);
+            $url = '../'.'blocks/lbcontrol/proxy_live.php?'.$qstr;
+        }
+        return $url;
+    }
 
 	// 发送POST请求的方法
 	function do_post_request($url, $data, $optional_headers = null) {

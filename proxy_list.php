@@ -5,7 +5,6 @@
 	require_once(dirname(__FILE__) . '/../../config.php');
 	require_once('mclib.php');
 	require_once($CFG->dirroot.'/my/lib.php');
-	//require_once($CFG->libdir.'/sheep.php');
 	
 	// 校验登录
 	require_login();
@@ -71,17 +70,4 @@
 	}
 	echo $text;
 	exit;
-
-    // 把获取到的地址改成通过moodle方法的代理地址
-    function changeUrl2Moodle($url) {
-        if($url != null) {
-            $arr = explode('?', $url);
-            //$arr2 = explode('repository', $_SERVER['PHP_SELF']);//娘的，处理可能的上下文，虽然PHP里面没有上下文的概念
-            //$url = 'http://'.$_SERVER['HTTP_HOST'].$arr2[0].'blocks/lbcontrol/live.php?'.$arr[1];
-            $qstr = str_replace('&preview=1', '', $arr[1]);
-            $url = '../'.'blocks/lbcontrol/proxy_live.php?'.$qstr;
-        }
-        return $url;
-    }
-
 ?>
