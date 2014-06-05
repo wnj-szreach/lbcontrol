@@ -14,8 +14,13 @@
 	require_capability('block/lbcontrol:addinstance', $context);
 
 	$PAGE->set_url('/blocks/lbcontrol/managerooms.php');
+	$PAGE->navbar->add(get_string('navigate_0', 'block_lbcontrol'));
+	$PAGE->navbar->add(get_string('navigate_1', 'block_lbcontrol'));
+	$PAGE->navbar->add(get_string('navigate_2', 'block_lbcontrol'));
+	$PAGE->navbar->add(get_string('navigate_3', 'block_lbcontrol'));
 	$PAGE->navbar->add(get_string('navigate_room', 'block_lbcontrol'));
 	$PAGE->set_title(get_string('managerooms', 'block_lbcontrol'));
+	$PAGE->set_pagelayout('admin');
 
 	echo $OUTPUT->header();
 	echo $OUTPUT->heading(get_string('room_assign', 'block_lbcontrol', ''));

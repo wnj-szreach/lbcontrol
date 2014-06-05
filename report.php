@@ -13,8 +13,13 @@
 	require_capability('block/lbcontrol:addinstance', $context);
 
 	$PAGE->set_url('/blocks/lbcontrol/report.php');
+	$PAGE->navbar->add(get_string('navigate_0', 'block_lbcontrol'));
+	$PAGE->navbar->add(get_string('navigate_1', 'block_lbcontrol'));
+	$PAGE->navbar->add(get_string('navigate_2', 'block_lbcontrol'));
+	$PAGE->navbar->add(get_string('navigate_3', 'block_lbcontrol'));
 	$PAGE->navbar->add(get_string('navigate_report', 'block_lbcontrol'));
 	$PAGE->set_title(get_string('report_title', 'block_lbcontrol'));
+	$PAGE->set_pagelayout('admin');
 
 	$PAGE->requires->css('/blocks/lbcontrol/vertical-bar.css');
 	echo $OUTPUT->header();

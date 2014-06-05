@@ -13,17 +13,22 @@ $id = required_param('id', PARAM_RAW_TRIMMED);
 //$context = context::instance_by_id($cohort->contextid, MUST_EXIST);
 //$PAGE->set_context($context);
 $context = context_system::instance();
-$PAGE->set_context($context);
 
 require_capability('block/lbcontrol:addinstance', $context);
 
+$PAGE->set_context($context);
 $PAGE->set_url('/blocks/lbcontrol/assign.php', array('id'=>$id));
 
 //navigation_node::override_active_url(new moodle_url('/blocks//lbcontrol/managerooms.php'));
+$PAGE->navbar->add(get_string('navigate_0', 'block_lbcontrol'));
+$PAGE->navbar->add(get_string('navigate_1', 'block_lbcontrol'));
+$PAGE->navbar->add(get_string('navigate_2', 'block_lbcontrol'));
+$PAGE->navbar->add(get_string('navigate_3', 'block_lbcontrol'));
 $PAGE->navbar->add(get_string('navigate_auth', 'block_lbcontrol'));
 
 $PAGE->set_title(get_string('managerooms', 'block_lbcontrol'));
 $PAGE->set_heading($COURSE->fullname);
+$PAGE->set_pagelayout('admin');
 
 $room = mediacenter_request(10114, array('RoomId'=>$id));
 if($room == null) {
