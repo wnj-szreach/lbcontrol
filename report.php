@@ -41,7 +41,7 @@
 		'PageSize'=>128 
 		,'PageNum'=>1
 		,'Type'=>160
-		,'Keyword'=>get_string('file_live','block_lbcontrol')
+		,'Keyword'=>'file_live'
 		,'BeginDate'=>date('Y-m', strtotime("-2 month")).'-01'
 	);
 	$result = mediacenter_request(10301, $params);

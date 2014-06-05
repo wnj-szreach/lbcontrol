@@ -41,8 +41,9 @@ class room_candidate_selector extends user_selector_base {
 			$sql = " FROM {user} u
 					WHERE $wherecondition";
 
-			list($sort, $sortparams) = users_order_by_sql('u', $search, $this->accesscontext);
-			$order = ' ORDER BY ' . $sort;
+			//list($sort, $sortparams) = users_order_by_sql('u', $search, $this->accesscontext);
+			//$order = ' ORDER BY ' . $sort;
+			$order = ' ORDER BY u.lastname ASC, u.firstname ASC';
 
 			if (!$this->is_validating()) {
 				$potentialmemberscount = $DB->count_records_sql($countfields . $sql, $params);
@@ -51,7 +52,8 @@ class room_candidate_selector extends user_selector_base {
 				}
 			}
 
-			$availableusers = $DB->get_records_sql($fields . $sql . $order, array_merge($params, $sortparams));
+			//$availableusers = $DB->get_records_sql($fields . $sql . $order, array_merge($params, $sortparams));
+			$availableusers = $DB->get_records_sql($fields . $sql . $order, $params);
 
 			if (empty($availableusers)) {
 				return array();
@@ -115,8 +117,9 @@ class room_existing_selector extends user_selector_base {
 			$sql = " FROM {user} u
 					WHERE $wherecondition";
 
-			list($sort, $sortparams) = users_order_by_sql('u', $search, $this->accesscontext);
-			$order = ' ORDER BY ' . $sort;
+			//list($sort, $sortparams) = users_order_by_sql('u', $search, $this->accesscontext);
+			//$order = ' ORDER BY ' . $sort;
+			$order = ' ORDER BY u.lastname ASC, u.firstname ASC';
 
 			if (!$this->is_validating()) {
 				$potentialmemberscount = $DB->count_records_sql($countfields . $sql, $params);
@@ -125,7 +128,8 @@ class room_existing_selector extends user_selector_base {
 				}
 			}
 
-			$availableusers = $DB->get_records_sql($fields . $sql . $order, array_merge($params, $sortparams));
+			//$availableusers = $DB->get_records_sql($fields . $sql . $order, array_merge($params, $sortparams));
+			$availableusers = $DB->get_records_sql($fields . $sql . $order, $params);
 
 			if (empty($availableusers)) {
 				return array();
