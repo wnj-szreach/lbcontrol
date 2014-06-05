@@ -12,7 +12,7 @@ $id = required_param('id', PARAM_RAW_TRIMMED);
 
 //$context = context::instance_by_id($cohort->contextid, MUST_EXIST);
 //$PAGE->set_context($context);
-$context = context_system::instance();
+$context = get_context();
 
 require_capability('block/lbcontrol:addinstance', $context);
 

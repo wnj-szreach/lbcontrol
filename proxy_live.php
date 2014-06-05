@@ -12,12 +12,9 @@
 	$recServerIp = $_GET['recip'];
 	$channel = $_GET['channel'];
 
-	// 检测系统'URL'模块是否存在 
-	$dbman = $DB->get_manager();
-
 	// 不具有Moodle管理员权限
-	if(!has_capability('moodle/site:config', context_system::instance()) 
-	&& !has_capability('block/lbcontrol:addinstance', context_system::instance())) {
+	if(!has_capability('moodle/site:config', get_context()) 
+	&& !has_capability('block/lbcontrol:addinstance', get_context())) {
 
 		$result = mediacenter_request(10405, array('UserName'=>$USER->username, 'RecServerIp'=>$recServerIp, 'Channel'=>$channel));
 		if($result == null) {
@@ -49,6 +46,7 @@
 			if (!$DB->record_exists_sql($sql, $sql_ps)){
 
 				// 从LINK表里查
+				$dbman = $DB->get_manager();
 				if(!$dbman->table_exists('link')) {
 					echo 'Have no auths in moodle'.'<br/>';
 					exit;

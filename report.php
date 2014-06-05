@@ -7,7 +7,7 @@
 
 	require_login();
 
-	$context = context_system::instance();
+	$context = get_context();
 	$PAGE->set_context($context);
 
 	require_capability('block/lbcontrol:addinstance', $context);
