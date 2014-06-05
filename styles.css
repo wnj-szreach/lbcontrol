@@ -1,0 +1,12 @@
+.block_lbcontrol .block_lbcontrol_wrap {text-align:center; list-style-type:none; margin:0px; padding:0px;}
+.block_lbcontrol .block_lbcontrol_wrap li {border-bottom:dashed 1px #ccc; line-height:24px; height:24px;}
+.block_lbcontrol .clr {display:block; clear:both;}
+.block_lbcontrol .filed_room_name {display:block; float:left; text-align:left;}
+.block_lbcontrol .filed_operation {display:block; float:right; height:24px;}
+.block_lbcontrol .filed_operation img {border:0px; cursor:pointer; width:16px; height:16px; margin-top:2px;}
+.block_lbcontrol .view_file {text-align:right; margin-top:10px; display:none;}
+
+/* lbcontrol_report */
+.block_lbcontrol_report {width:100%; border-width: 1px; border-color: #666666; border-collapse: collapse; color:#333333;}
+.block_lbcontrol_report th {border-width: 1px; padding: 8px; border-style: solid; border-color: #666666; background-color: #dedede}
+.block_lbcontrol_report td {border-width: 1px; padding: 8px; border-style: solid; border-color: #666666; background-color: #ffffff;}
